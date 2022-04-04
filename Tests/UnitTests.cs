@@ -30,7 +30,21 @@ namespace GithubActionsLab
             Assert.Throws<ArgumentNullException>(() => Program.Add(null, null));
         }
       
-        
+        [Test]
+        public void Subtraction_Valid_Schlautman()
+        {
+            Assert.AreEqual(4, Program.Subtract("5", "1"));
+            Assert.AreEqual(4, Program.Subtract("12", "8"));
+            Assert.AreEqual(22, Program.Subtract("27", "5"));
+        }
+
+        [Test]
+        public void Subtraction_Invalid_Schlautman()
+        {
+            Assert.Throws<FormatException>(() => Program.Subtract("1", "m8"));
+            Assert.Throws<FormatException>(() => Program.Subtract("98", "p1"));
+            Assert.Throws<FormatException>(() => Program.Subtract("-3", "d"));
+        }
         // Implement 3 tests per operation, following a similar pattern as above
     }
 }
