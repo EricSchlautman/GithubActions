@@ -93,6 +93,30 @@ namespace GithubActionsLab
             Assert.Throws<ArgumentNullException>(() => Program.Divide(null, "1"));
             Assert.Throws<ArgumentNullException>(() => Program.Divide(null, null));
         }
+        
+        [Test]
+        public void Power_Valid_Schlautman()
+        {
+            Assert.AreEqual(1, Program.Power("1", "4"));
+            Assert.AreEqual(1, Program.Power("2", "0"));
+            Assert.AreEqual(16, Program.Power("2", "4"));
+        }
+
+        [Test]
+        public void Power_Invalid_Schlautman()
+        {
+            Assert.Throws<FormatException>(() => Program.Power("1", "m8"));
+            Assert.Throws<FormatException>(() => Program.Power("98", "p1"));
+            Assert.Throws<FormatException>(() => Program.Power("-3", "d"));
+        }
+
+        [Test]
+        public void Power_Null_Schlautman()
+        {
+            Assert.Throws<ArgumentNullException>(() => Program.Power("-98", null));
+            Assert.Throws<ArgumentNullException>(() => Program.Power(null, "1"));
+            Assert.Throws<ArgumentNullException>(() => Program.Power(null, null));
+        }
         // Implement 3 tests per operation, following a similar pattern as above
     }
 }
