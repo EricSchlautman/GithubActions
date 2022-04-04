@@ -54,6 +54,29 @@ namespace GithubActionsLab
             Assert.Throws<ArgumentNullException>(() => Program.Subtract(null, null));
         }
         
+        [Test]
+        public void Multiply_Valid_Schlautman()
+        {
+            Assert.AreEqual(24, Program.Multiply("2", "12"));
+            Assert.AreEqual(96, Program.Multiply("12", "8"));
+            Assert.AreEqual(0, Program.Multiply("4", "0"));
+        }
+
+        [Test]
+        public void Multiply_Invalid_Schlautman()
+        {
+            Assert.Throws<FormatException>(() => Program.Multiply("1", "m8"));
+            Assert.Throws<FormatException>(() => Program.Multiply("98", "p1"));
+            Assert.Throws<FormatException>(() => Program.Multiply("-3", "d"));
+        }
+
+        [Test]
+        public void Multiply_Null_Schlautman()
+        {
+            Assert.Throws<ArgumentNullException>(() => Program.Multiply("-98", null));
+            Assert.Throws<ArgumentNullException>(() => Program.Multiply(null, "1"));
+            Assert.Throws<ArgumentNullException>(() => Program.Multiply(null, null));
+        }
         // Implement 3 tests per operation, following a similar pattern as above
     }
 }
